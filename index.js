@@ -21,12 +21,13 @@ const main = async () => {
       type: 'input',
       name: 'color',
       message: 'Enter a color for the logo:',
+      validate: validateColorKeyword,
     },
     {
       type: 'list',
       name: 'shape',
       message: 'Select a shape for the logo:',
-      choices: ['circle', 'rectangle', 'triangle'],
+      choices: ['circle', 'rtriangle', 'square'],
     },
     {
       type: 'input',
@@ -44,7 +45,7 @@ const main = async () => {
     
   await generateLogo(answers);
 
-  console.log('Logo created!');
+  console.log('Generated logo.svg');
 };
 
 main();
