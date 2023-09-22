@@ -4,15 +4,15 @@ const svgjs = require('svg.js');
 const generateLogo = async (answers) => {
   const { color, shape, text } = answers;
 
-const doc = svgjs.Document();
-const shapeElement = doc.element(shape);
-shapeElement.attr('fill', color);
+  const doc = svgjs.Document();
+  const shapeElement = doc.element(shape);
+  shapeElement.attr('fill', color);
 
-const textElement = doc.text(text);
-doc.add(shapeElement);
-doc.add(textElement);
+  const textElement = doc.text(text);
+  doc.add(shapeElement);
+  doc.add(textElement);
 
-await doc.save(`logo.${answers.format}`);
+  await doc.save(`logo.${answers.format}`);
 };
 
 const main = async () => {
@@ -32,12 +32,19 @@ const main = async () => {
       type: 'input',
       name: 'text',
       message: 'Enter text for the logo:',
+      validate: (input) => {
+        if (input.length <= 3) {
+          return true;
+        } else {
+          return 'Text must be no more than 3 characters long.';
+        }
+      },
     },
   ]);
+    
+  await generateLogo(answers);
 
-await generateLogo(answers);
-
-console.log('Logo created!');
+  console.log('Logo created!');
 };
 
 main();
