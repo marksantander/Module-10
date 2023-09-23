@@ -1,5 +1,5 @@
 const inquirer = require('inquirer');
-const svgjs = require('svg.js');
+const svgjs = require('../Module-10/node_modules/svg.js');
 
 const generateLogo = async (answers) => {
   const { color, shape, text } = answers;
@@ -21,7 +21,7 @@ const main = async () => {
       type: 'input',
       name: 'color',
       message: 'Enter a color for the logo:',
-      validate: validateColorKeyword,
+      //validate: validateColorKeyword,
     },
     {
       type: 'list',
