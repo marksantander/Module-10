@@ -3,7 +3,7 @@ SVG Logo Maker
 
 This Node.js command-line application takes in user input to generate a logo and save it as an SVG file.
 
-Dependancy: NPM SVG.JS, NPM inquirer, NPM Jest
+Dependancy: NPM SVG.JS, NPM inquirer, NPM Jest, NPM svg-to-png
 
 The application will prompt you for the following information:
 
